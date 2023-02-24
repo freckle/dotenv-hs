@@ -24,17 +24,18 @@ import           Configuration.Dotenv.Environment    (getEnvironment, lookupEnv,
                                                       setEnv)
 import           Configuration.Dotenv.Parse          (configParser)
 import           Configuration.Dotenv.ParsedVariable (interpolateParsedVariables)
-import           Configuration.Dotenv.Types          (Config (..), defaultConfig)
-import           Control.Monad.Trans                 (lift)
-import           Control.Monad.Reader                (ReaderT, ask, runReaderT)
+import           Configuration.Dotenv.Types          (Config (..),
+                                                      defaultConfig)
 import           Control.Exception                   (throw)
 import           Control.Monad                       (unless, when)
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class              (MonadIO (..))
+import           Control.Monad.Reader                (ReaderT, ask, runReaderT)
+import           Control.Monad.Trans                 (lift)
 import           Data.Function                       (on)
-import           Data.List.NonEmpty                  (NonEmpty(..))
-import qualified Data.List.NonEmpty as NE
-import           Data.List                           ((\\), intercalate, union)
+import           Data.List                           (intercalate, union, (\\))
+import           Data.List.NonEmpty                  (NonEmpty (..))
+import qualified Data.List.NonEmpty                  as NE
 import           System.IO.Error                     (isDoesNotExistError)
 import           Text.Megaparsec                     (errorBundlePretty, parse)
 
